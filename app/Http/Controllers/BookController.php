@@ -92,6 +92,7 @@ class BookController extends Controller
         //思路
         //采用jquery的失焦时间发送ajax 去数据表里查询是否有相同的图书名称。有代表重复，无代表不重复
         if (empty($request->get('bookname'))){
+            // 验证图书名称不能为空
             return ['code'=>500,'msg'=>'图书名称不能为空'];
         }
        $res =  Book::where('book_name',$request->get('bookname'))->first();
